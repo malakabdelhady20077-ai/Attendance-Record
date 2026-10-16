@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Record</title>
+    
+    <style>
+       .welcome{
+        font-size: 5rem;
+            font-weight: 1300;
+            font-style: italic;
+            letter-spacing: 4px;
+            color: #ffffff;
+            text-shadow: 
+                0 0 10px #ff3399,
+                0 0 20px #ff3399,
+                0 0 40px #ff3399,
+                0 0 80px #ff3390;
+            margin-bottom: 5px;
+            line-height: 1;
+            margin-top: 50px;
+       }
+       * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
+       body{
+        background-color:#0b0710;
+        color: #ffb7eb;
+        font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+             margin-top: 30px;
+             align-items: center;
+       }
+       body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(255, 183, 235, 0.2) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 1;
+            pointer-events: none;
+        }
+       header{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding:25px 40px ;
+        z-index:2 ;
+       } 
+       l1 {
+            color: #ffb7eb;
+            font-weight: bold;
+        }
+       
+        .sparkles {
+            display: flex;
+            gap: 20px;
+            font-size: 2rem; 
+            color: #ff66cc;
+            text-shadow: 0 0 15px #ff66cc;
+            z-index: 2;
+            margin: 40px 10px;
+        }
+          
+        
+        .buttons {
+            display: flex;
+            gap: 20px;
+            z-index: 2;
+            margin-bottom: 50px;
+        }
+
+        .btn {
+            background: transparent;
+            border: 2px solid rgba(255, 102, 204, 0.6);
+            color: #ffb7eb;
+            padding: 30px 50px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1,5rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        
+        .btn:hover {
+            border-color: #ff3399;
+            box-shadow: 0 0 20px #ff3399;
+            background-color: rgba(255, 51, 153, 0.2);
+        }
+        
+       
+
+   .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(11, 7, 16, 0.85);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #0b0710;
+            border: 2px solid #ff3399;
+            box-shadow: 0 0 30px rgba(255, 51, 153, 0.5);
+            padding: 40px;
+            width: 480px;
+            max-width: 90%;
+            position: relative;
+            color: #ffb7eb;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 1001;
+        }
+
+        .modal-content h2 {
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            color: #ffb7eb;
+        }
+
+        .modal-content p {
+            font-size: 0.85rem;
+            color: #ffb7eb;
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+
+        .modal-content label {
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: #ff3399;
+            margin-bottom: -10px;
+        }
+
+        .portal-select, .portal-input {
+            background: transparent;
+            border: 1px solid #ff3399;
+            color: #ffb7eb;
+            padding: 12px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            outline: none;
+            width: 100%;
+        }
+
+  
+    </style>
+</head>
+<header>
+    <h1 class="welcome">WElCOME</h1>
+    <h3>TO UNI ATTEND</h3>
+</header>
+<body>
+  
+        <br>   <pa class="l1"> Great job showing up✨</pa>  <br>
+<br>
+<pa>
+Attending your lectures is a great step toward success
+<br>
+Click [ Get Started ] to mark your attendance.
+
+  </pa> 
+  <br> 
+    
+    <br> <br> 
+        <div class="sparkles">
+            <span>&#10022;</span>
+            <span>&#10022;</span>
+            <span>&#10022;</span>
+        </div>
+
+        <div class="button">
+    <a href="#"class="btn">GO HOME</a>
+
+    <button type="button" id="getStartedBtn" class="btn">
+        GET STARTED
+    </button>
+      </div> 
+      <div id="portalModal" class="modal-overlay">
+         <div class="modal-content"> 
+            <span id="closeModal" class="close-btn">&times;</span>
+             <h2>STUDENT LOGIN</h2> 
+             <p>Put your ID correctly then put the the Attendace code</p> 
+             <label>YOUR ID</label> 
+             <input type="text" placeholder="e.g.2453789" class="portal-input"> 
+             
+             <label>ATTANDE CODE</label>
+              <input type="text" placeholder="e.g.0000000" class="portal-input"> 
+              <button type="button" class="btn btn:hover"> ENTER </button> 
+            </div> </div>
+    <script src="JS.js"></script>
+</body>
+</html>
